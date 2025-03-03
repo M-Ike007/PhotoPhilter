@@ -1,4 +1,11 @@
 from tkinter import Frame
+from tkinter import *
+
+
+huge_font = ('Helvetica', 20)
+large_font = ('Helvetica', 12)
+small_font = ('Helvetica', 8)
+tiny_font = ('helvetica', 4)
 
 
 class Sorter(Frame):
