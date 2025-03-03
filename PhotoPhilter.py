@@ -188,9 +188,9 @@ if __name__ == '__main__':
     # Define and instantiate app
 
     app = App()
-    # app.mainloop()
+    app.mainloop()
 
-    md = MyMetadata(app)
-    md.get_metdat('004.JPG')
+    # md = MyMetadata(app)
+    # md.get_metdat('004.JPG')
 
 
