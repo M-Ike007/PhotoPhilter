@@ -36,3 +36,7 @@ class Sorter(Frame):
         #  at them later (is this the same as later button?
 
         # TODO button for going into next folder, go inside, go outside
+
+        # TODO button to show an overview of upcoming images
+
+        # TODO compare button
