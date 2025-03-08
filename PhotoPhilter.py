@@ -2,12 +2,13 @@ from tkinter import *
 from PIL import Image, ImageTk
 
 
-from tkinter import PhotoImage
-import customtkinter as ctk
-import tkinter.ttk as ttk
-import re
+# from tkinter import PhotoImage
+# import customtkinter as ctk
+# import tkinter.ttk as ttk
+# import re
 
 import PicSelect as Ps
+import SorterFrame as Sf
 
 huge_font = ('Helvetica', 20)
 large_font = ('Helvetica', 12)
@@ -44,7 +45,7 @@ class App(Tk):
         self.canvas_height = window_height - 200
 
         # Define photo sorter button frame
-        self.sorter = Sorter(self)
+        self.sorter = Sf.Sorter(self)
         self.sorter.grid(row=3, column=1, sticky='s',)
 
         # Define photo list
@@ -152,36 +153,6 @@ class App(Tk):
     def store(self):
         pass
         # TODO method that stores the keep, discard and later lists somewhere somehow
-
-
-class Sorter(Frame):    # TODO outsource this to SorterFrame.py?
-    def __init__(self, parent):
-        super().__init__(parent)
-        self.grid()
-
-        # 4 buttons: Keep, Discard, decide Later, analyze
-        self.button_keep = Button(self, text='Keep', font=large_font, command=parent.keep, bg='green')
-        self.button_keep.grid(row=1, column=1, padx=10, pady=15)
-
-        self.button_discard = Button(self, text='Discard', font=large_font, command=parent.discard, bg='red')
-        self.button_discard.grid(row=1, column=2, padx=10, pady=15)
-
-        self.button_later = Button(self, text='Later', font=large_font, command=parent.decide_later, bg='orange')
-        self.button_later.grid(row=1, column=3, padx=10, pady=15)
-
-        self.button_analyze = Button(self, text='Analyze', font=large_font, command=parent.analyze, bg='turquoise')
-        self.button_analyze.grid(row=1, column=4, padx=10, pady=15)
-
-        # TODO help button
-
-        # TODO undo button
-
-        # TODO rotate photo 90 degrees
-
-        # TODO button that stars an image as to give user choice to look
-        #  at them later (is this the same as later button?
-
-        # TODO button for going into next folder, go inside, go outside
 
 
 if __name__ == '__main__':
