@@ -154,7 +154,7 @@ class App(Tk):
         # TODO method that stores the keep, discard and later lists somewhere somehow
 
 
-class Sorter(Frame):
+class Sorter(Frame):    # TODO outsource this to SorterFrame.py?
     def __init__(self, parent):
         super().__init__(parent)
         self.grid()

@@ -40,6 +40,9 @@ class App(Tk):
 
         # check if everything is present
         if self.folder:
+            # TODO it would make more sense if json files are stored
+            #  in the given directory of the folder. That way you can
+            #  load them and continue from where you left off.
             self.setup_frame.quit()
 
             settings = {'directory': self.folder}  # store all settings values in this dictionary

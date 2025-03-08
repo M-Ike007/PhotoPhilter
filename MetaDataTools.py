@@ -4,6 +4,13 @@ from PIL.ExifTags import TAGS
 # TODO make a class that is a metadata frame
 
 
+def print_info(info_dict, data_dict):
+    for label, value in info_dict.items():
+        print(f"{label:25}: {value}")
+    for label, value in data_dict.items():
+        print(f"{label:25}: {value}")
+
+
 def get_metdat(photo):
     image = Image.open(photo)
 
@@ -33,10 +40,18 @@ def get_metdat(photo):
             data = data.decode(encoding='latin-1')
         data_dict[tag] = data
 
-    for label, value in info_dict.items():
-        print(f"{label:25}: {value}")
-    for label, value in data_dict.items():
-        print(f"{label:25}: {value}")
-
     return info_dict, data_dict
+
+
+def store_metdat(info, data):
+    ...
+
+
+if __name__ == '__main__':
+    print('hi')
+    x, y = get_metdat('004.jpg')
+    print(x)
+    print('\nnext\n')
+    print(y)
+
 
