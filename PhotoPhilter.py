@@ -1,5 +1,6 @@
 from tkinter import *
 from PIL import Image, ImageTk
+import json
 
 
 # from tkinter import PhotoImage
@@ -83,9 +84,10 @@ class App(Tk):
             self.pic_canvas.bind('<Configure>', self.show_full_image)
         else:
             print('no more Photo\'s to sort')
-            # close the app
             # store all data in JSON files
-            # Main.py will open new window that shows overview and Execute button.
+            self.store()
+            # close the app
+            self.destroy()
 
     def report(self, button: str):
         print('put', self.photo_list.get_image(fullpath=False), 'into', button, 'list')
@@ -154,8 +156,12 @@ class App(Tk):
             image=self.resized_image_tk)
 
     def store(self):
-        pass
-        # TODO method that stores the keep, discard and later lists somewhere somehow
+        storage = {'keep': self.keeplist, 'discard': self.discardlist, 'later': self.laterlist}
+        with open("decisions.json", "w") as outfile:
+
+            json.dump(storage, outfile, indent=6)
+
+        outfile.close()
 
 
 if __name__ == '__main__':
@@ -166,5 +172,3 @@ if __name__ == '__main__':
 
     # md = MyMetadata(app)
     # md.get_metdat('004.JPG')
-
-
