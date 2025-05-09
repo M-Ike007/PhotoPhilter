@@ -40,7 +40,7 @@ class App(Tk):
         self.rightpanel.grid(row=0, column=2)
 
         self.button_later = Button(self, text='Later', bg='orange')
-        self.button_later.grid(row=1, column=3, padx=10, pady=15)
+        self.button_later.grid(row=1, column=1, padx=10, pady=15)
 
 
 if __name__ == '__main__':

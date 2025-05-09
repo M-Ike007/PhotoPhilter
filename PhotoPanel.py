@@ -6,10 +6,10 @@ class Panel(Frame):
     def __init__(self):
         super().__init__()
 
-        self.pack()
+        self.grid()
 
         self.checkboximage = CBI(self)
-        self.checkboximage.pack()
+        self.checkboximage.grid()
 
         # lets try to build this panel with pack() instead of grid()
         # grid gives more freedom, but since we have such a specific
