@@ -4,7 +4,45 @@
 # lets start with an interface for generally normal/small sized assorted photos
 # there should be an execute button that deletes the actual photos and keeps the rest.
 # there should be something done with the decide later as well...
+from tkinter import *
+from PIL import Image, ImageTk
+import json
+
+import PhotoPanel as PPan
+
+
+class App(Tk):
+    def __init__(self):
+        super().__init__()
+
+        self.title("Final Sort")
+        self.iconbitmap('favicon.ico')
+
+        screen_width = self.winfo_screenwidth()
+        screen_height = self.winfo_screenheight()
+
+        # define shrink margins
+        margin_x = 100
+        margin_y = 100
+
+        # Define window size
+        window_width = screen_width - margin_x
+        window_height = screen_height - margin_y
+
+        # Set window size dynamically
+        self.geometry(f"{window_width}x{window_height}+{int(margin_x / 2)}+{int(margin_y / 4)}")
+        self.grid()
+
+        self.leftpanel = PPan.Panel()
+        self.rightpanel = PPan.Panel()
+
+        self.leftpanel.grid(row=0, column=0)
+        self.rightpanel.grid(row=0, column=2)
+
+        self.button_later = Button(self, text='Later', bg='orange')
+        self.button_later.grid(row=1, column=3, padx=10, pady=15)
 
 
 if __name__ == '__main__':
-    ...
+    finalsort = App()
+    finalsort.mainloop()
