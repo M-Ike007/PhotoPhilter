@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import PhotoImage
 
+# source: https://www.w3resource.com/python-exercises/tkinter/python-tkinter-custom-widgets-and-themes-exercise-2.php
+
 
 class CheckBoxImage(tk.Checkbutton):
     def __init__(self, master=None, **kwargs):
