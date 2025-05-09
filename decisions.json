@@ -1,6 +1,9 @@
 {
       "keep": [
             "004 - kopie.JPG",
+            "2021-10-06 009.JPG",
+            "a6f4pc97a7c71 - kopie.jpg",
+            "a6f4pc97a7c71.jpg",
             "bart (2).jpg",
             "bart.jpg",
             "bartenmees.jpg",
@@ -12,11 +15,7 @@
       ],
       "discard": [
             "004.JPG",
-            "a6f4pc97a7c71 - kopie.jpg",
-            "a6f4pc97a7c71.jpg"
-      ],
-      "later": [
-            "2021-10-06 009.JPG",
             "4436481.png"
-      ]
+      ],
+      "later": []
 }
