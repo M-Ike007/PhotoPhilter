@@ -2,7 +2,6 @@ from tkinter import *
 from PIL import Image, ImageTk
 import json
 
-
 # from tkinter import PhotoImage
 # import customtkinter as ctk
 # import tkinter.ttk as ttk
@@ -158,7 +157,6 @@ class App(Tk):
     def store_decisions(self):
         storage = {'keep': self.keeplist, 'discard': self.discardlist, 'later': self.laterlist}
         with open("decisions.json", "w") as outfile:
-
             json.dump(storage, outfile, indent=6)
 
         outfile.close()
