@@ -85,7 +85,7 @@ class App(Tk):
         else:
             print('no more Photo\'s to sort')
             # store all data in JSON files
-            self.store()
+            self.store_decisions()
             # close the app
             self.destroy()
 
@@ -155,7 +155,7 @@ class App(Tk):
             anchor='center',
             image=self.resized_image_tk)
 
-    def store(self):
+    def store_decisions(self):
         storage = {'keep': self.keeplist, 'discard': self.discardlist, 'later': self.laterlist}
         with open("decisions.json", "w") as outfile:
 
