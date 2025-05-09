@@ -4,3 +4,7 @@
 # lets start with an interface for generally normal/small sized assorted photos
 # there should be an execute button that deletes the actual photos and keeps the rest.
 # there should be something done with the decide later as well...
+
+
+if __name__ == '__main__':
+    ...

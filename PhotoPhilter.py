@@ -15,6 +15,9 @@ large_font = ('Helvetica', 12)
 small_font = ('Helvetica', 8)
 tiny_font = ('helvetica', 4)
 
+# TODO instead of store image names in lists, we should store
+#  in a JSON File maybe? something to think about...
+
 
 # class that creates the app
 class App(Tk):
