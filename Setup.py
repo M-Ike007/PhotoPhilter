@@ -33,6 +33,12 @@ class App(Tk):
             # store selected folder path
             self.setup_frame.insert_dir(selected_folder)
 
+    def set_workflow(self):
+        pass
+        # TODO idea for the future: let user determine their own workflow, which
+        # lets them specify which steps to take and in what order.
+        # also lets user decide on what folders to go through. (i.e. all subfolders of folder x, or ... )
+
     def start(self):
         # get settings
         self.folder = self.setup_frame.get_dir()
