@@ -5,11 +5,11 @@ from tkinter import PhotoImage
 
 
 class CheckBoxImage(tk.Checkbutton):
-    def __init__(self, master=None, **kwargs):
+    def __init__(self, master=None, ** kwargs):
         super().__init__(master, ** kwargs)
 
         # Load custom images for checked and unchecked states
-        self.checked_icon = PhotoImage(file="kaas.png")  # Replace with your checked image
+        self.checked_icon = PhotoImage(file='kaas.png')  # Replace with your checked image
         self.unchecked_icon = PhotoImage(file="kaas.png")  # Replace with your unchecked image
 
         self.config(
