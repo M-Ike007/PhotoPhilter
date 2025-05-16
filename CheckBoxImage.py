@@ -1,17 +1,22 @@
 import tkinter as tk
 from tkinter import PhotoImage
-
+from PIL import Image, ImageTk
 # source: https://www.w3resource.com/python-exercises/tkinter/python-tkinter-custom-widgets-and-themes-exercise-2.php
+# source used but adjusted to handle more image data types
 
 
 class CheckBoxImage(tk.Checkbutton):
-    def __init__(self, master=None, ** kwargs):
-        super().__init__(master, ** kwargs)
+    def __init__(self, master, image_path=None):
+        super().__init__(master)
+
+        # Load image using PIL
+        image = Image.open(image_path)
+        image = image.resize((100, 100))
 
         # Load custom images for checked and unchecked states
-        self.checked_icon = PhotoImage(file='kaas.png')  # Replace with your checked image
-        self.unchecked_icon = PhotoImage(file="kaas.png")  # Replace with your unchecked image
-
+        self.checked_icon = ImageTk.PhotoImage(image)  # Replace with your checked image
+        self.unchecked_icon = ImageTk.PhotoImage(image)  # Replace with your unchecked image
+        # TODO this is an error, I don't know how to fix it yet...
         self.config(
             image=self.unchecked_icon,
             selectimage=self.checked_icon,
@@ -22,6 +27,10 @@ class CheckBoxImage(tk.Checkbutton):
             highlightthickness=0,
             relief=tk.FLAT,
         )
+
+    # chatgpt said to use this but i don't think its necessary, but keeping it here just in case...
+        # Keep a reference to prevent garbage collection
+        # self.image_refs = [self.checked_icon, self.unchecked_icon]
 
 
 if __name__ == "__main__":
