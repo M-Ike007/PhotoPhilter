@@ -13,7 +13,7 @@ class Panel(Frame):
 
     def show_images_from_list(self, list_name: str):
         # unpack decisions.json information
-
+        # TODO show images from list
         # get list of list_name
         mylist = ...
         # unpack settings.json and get directory
