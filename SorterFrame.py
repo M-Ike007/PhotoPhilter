@@ -35,8 +35,10 @@ class Sorter(Frame):
         # TODO button that stars an image as to give user choice to look
         #  at them later (is this the same as later button?
 
-        # TODO button for going into next folder, go inside, go outside
+        # TODO button for going into next folder, go inside, go outside. This could be an entire window tbh...
 
         # TODO button to show an overview of upcoming images
 
         # TODO compare button
+
+        # TODO 'bank' button that lets users bank a certain image in a different folder. would be nice if users can make an unlimited amount of bank folders.
