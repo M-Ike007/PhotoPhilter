@@ -29,6 +29,7 @@ class Panel(Frame):
 
         # create image path
         image_path = str(directory) + '/' + str(imagenames[0])
+
         return image_path
 
 if __name__ == '__main__':
