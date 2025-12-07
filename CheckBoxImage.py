@@ -16,8 +16,9 @@ class CheckBoxImage(tk.Checkbutton):
         image = image.resize((100, 100))
 
         # Load custom images for checked and unchecked states
-        self.checked_icon = ImageTk.PhotoImage(image.filter(ImageFilter.GaussianBlur(radius=3)))  # Replace with your checked image
+        self.checked_icon = ImageTk.PhotoImage(image.filter(ImageFilter.GaussianBlur(radius=3)))
         self.unchecked_icon = ImageTk.PhotoImage(image)  # Replace with your unchecked image
+
         # TODO this is an error, I don't know how to fix it yet...
         self.config(
             image=self.unchecked_icon,
@@ -25,7 +26,7 @@ class CheckBoxImage(tk.Checkbutton):
             indicatoron=False,
             padx=0,
             pady=0,
-            borderwidth=0,
+            borderwidth=1,
             highlightthickness=0,
             relief=tk.FLAT,
         )
