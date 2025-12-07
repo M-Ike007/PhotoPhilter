@@ -1,5 +1,6 @@
 from tkinter import *
 from CheckBoxImage import CheckBoxImage as CBI
+import json
 
 
 class Panel(Frame):
@@ -8,24 +9,28 @@ class Panel(Frame):
 
         self.grid()
 
-        self.checkboximage = CBI(self, image_path='Media/004.JPG')
+        self.checkboximage = CBI(self, image_path=self.set_checkbox_image('discard'))
         self.checkboximage.grid()
 
-    def show_images_from_list(self, list_name: str):
+    def set_checkbox_image(self, list_name: str):
         # unpack decisions.json information
-        # TODO show images from list
+        file = open("decisions.json")
+        decisions = file.read()
+        file.close()
+
         # get list of list_name
-        mylist = ...
+        imagenames = json.loads(decisions)[list_name]
+
         # unpack settings.json and get directory
+        file = open('settings.json')
+        settings = file.read()
+        file.close()
+        directory = json.loads(settings)['directory']
 
-        for name in list_name:  # list_name should be "keep" or "discard"
-            print(name)
+        # create image path
+        image_path = str(directory) + '/' + str(imagenames[0])
+        return image_path
 
-    # we need the following:
-    # - data structure that lets us visualize an image over and over
-    # - figure out best tk datatype for a highlightable image
-
-    # constraints
-    # - everything selected and moved to another "panel" has
-    #   consequences for the decisions.json. so at the end the json
-    #   should be modified, after which the images are deleted
+if __name__ == '__main__':
+    panel = Panel()
+    panel.set_checkbox_image('discard')
