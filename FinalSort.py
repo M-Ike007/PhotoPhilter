@@ -16,7 +16,7 @@ class App(Tk):
         super().__init__()
 
         self.title("Final Sort")
-        self.iconbitmap('favicon.ico')
+        self.iconbitmap('Media/favicon.ico')
 
         screen_width = self.winfo_screenwidth()
         screen_height = self.winfo_screenheight()
@@ -44,5 +44,5 @@ class App(Tk):
 
 
 if __name__ == '__main__':
-    finalsort = App()
-    finalsort.mainloop()
+    final_sort = App()
+    final_sort.mainloop()

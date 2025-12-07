@@ -26,7 +26,7 @@ class App(Tk):
 
         # Define styles
         self.title("PhotoPhilter")
-        self.iconbitmap('favicon.ico')
+        self.iconbitmap('Media/favicon.ico')
 
         # Define screen dimensions
         screen_width = self.winfo_screenwidth()

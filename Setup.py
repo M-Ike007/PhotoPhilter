@@ -15,7 +15,7 @@ class App(Tk):
 
         # Define styles
         self.title("PhotoPhilter - Setup")
-        self.iconbitmap('favicon.ico')
+        self.iconbitmap('Media/favicon.ico')
         self.geometry('700x400')
         self.grid()
 

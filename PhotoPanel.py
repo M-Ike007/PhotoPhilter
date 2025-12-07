@@ -8,7 +8,7 @@ class Panel(Frame):
 
         self.grid()
 
-        self.checkboximage = CBI(self, image_path='004.JPG')
+        self.checkboximage = CBI(self, image_path='Media/004.JPG')
         self.checkboximage.grid()
 
     def show_images_from_list(self, list_name: str):
