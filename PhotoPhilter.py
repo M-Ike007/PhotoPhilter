@@ -161,6 +161,8 @@ class App(Tk):
 
         outfile.close()
 
+    def check_existing_decisions_file(self):
+        pass # TODO
 
 if __name__ == '__main__':
     # Define and instantiate app
