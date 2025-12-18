@@ -35,7 +35,7 @@ class Panel(Frame):
 
     def create_checkbox_list(self, list_name: str):
         # unpack decisions.json information
-        file = open("decisions.json")
+        file = open(self.decisions)
         decisions = file.read()
         file.close()
 
