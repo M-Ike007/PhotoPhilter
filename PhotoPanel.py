@@ -25,7 +25,7 @@ class Panel(Frame):
 
     def set_checkbox_image(self, list_name: str):
         # unpack decisions.json information
-        file = open("decisions.json")
+        file = open(self.decisions)
         decisions = file.read()
         file.close()
 
