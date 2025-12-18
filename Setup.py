@@ -101,7 +101,7 @@ class Setup(Frame):
     def get_dir(self):
         return self.directory.get()
 
-    def raise_missing(self, missing_item: str = 'something'):
+    def raise_missing(self, missing_item: str = 'something'): #TODO this function doesnt work...
         txt = 'you forgot to fill in ' + missing_item
         self.label_missing.config(text=txt)
 
