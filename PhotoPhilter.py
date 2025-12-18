@@ -65,7 +65,7 @@ class App(Tk):
         self.image_ratio = 0.5
         self.set_photo()
 
-        # Define Metadata TODO
+        # TODO Define Metadata
 
     def set_photo(self):
         if len(self.photo_list) > 0:
