@@ -12,6 +12,7 @@ class Panel(Frame):
         self.grid()
 
         self.checkboxes = self.create_checkbox_list(image_list)
+        self.checkbox = CBI
         self.place_checkboxes()
 
 
