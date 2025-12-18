@@ -15,6 +15,13 @@ class Panel(Frame):
         self.checkbox = CBI
         self.place_checkboxes()
 
+        self.states = []
+
+    def get_decisions(self):
+        with open('settings.json', 'r') as outfile:
+            settings = json.load(outfile)
+        outfile.close()
+        return settings['directory'] + '/decisions.json'
 
     def set_checkbox_image(self, list_name: str):
         # unpack decisions.json information
