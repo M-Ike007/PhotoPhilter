@@ -59,6 +59,9 @@ class Panel(Frame):
             self.checkbox = self.checkboxes[i]
             self.checkbox.grid(row=(1 + (i%7)), column=(i//7 +1))
             # the number 7 is based on my personal laptop screen size and might be different elsewhere
+            self.checkbox.grid(row=(1 + (i%6)), column=(i//6 +1))
+            #TODO the number 6 is based on my personal laptop screen size and might be different elsewhere
+
 
 if __name__ == '__main__':
     panel = Panel('keep')
