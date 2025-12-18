@@ -10,6 +10,8 @@ from PIL import Image, ImageTk, ImageFilter
 class CheckBoxImage(tk.Checkbutton):
     def __init__(self, master, image_path=None):
         super().__init__(master)
+        # unique identifier
+        self.name = image_path
 
         # Load image using PIL
         image = Image.open(image_path)
@@ -28,12 +30,8 @@ class CheckBoxImage(tk.Checkbutton):
             pady=0,
             borderwidth=1,
             highlightthickness=0,
-            relief=tk.FLAT,
+            relief=tk.FLAT
         )
-
-    # chatgpt said to use this but i don't think its necessary, but keeping it here just in case...
-        # Keep a reference to prevent garbage collection
-        # self.image_refs = [self.checked_icon, self.unchecked_icon]
 
 
 if __name__ == "__main__":
