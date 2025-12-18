@@ -156,7 +156,11 @@ class App(Tk):
 
     def store_decisions(self): #TODO make sure decisions.json is stored in the right location
         storage = {'keep': self.keeplist, 'discard': self.discardlist, 'later': self.laterlist}
-        with open("decisions.json", "w") as outfile:
+        # get directory for storing decisions from settings.json
+        with open('settings.json', 'r') as outfile:
+            settings = json.load(outfile)
+        outfile.close()
+        with open(settings['directory'] + "/decisions.json", "w") as outfile:
             json.dump(storage, outfile, indent=6)
 
         outfile.close()
