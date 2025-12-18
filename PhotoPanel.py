@@ -7,6 +7,8 @@ class Panel(Frame):
     def __init__(self, image_list: str):
         super().__init__()
 
+        self.decisions = self.get_decisions()
+
         self.grid()
 
         self.checkboxes = self.create_checkbox_list(image_list)
