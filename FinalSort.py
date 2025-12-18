@@ -35,6 +35,21 @@ class App(Tk):
 
         self.leftpanel = PPan.Panel()
         self.rightpanel = PPan.Panel()
+        self.left_panel = PPan.Panel('keep')
+        self.right_panel = PPan.Panel('discard')
+
+        self.left_panel.grid(row=1, column=0)
+        self.right_panel.grid(row=1, column=2)
+
+        self.title_left = Label(self, text='Keep', font=('Helvetica', 12))
+        self.title_right = Label(self, text='Discard', font=('Helvetica', 12))
+
+        self.title_left.grid(row=0, column=0)
+        self.title_right.grid(row=0, column=2)
+
+        self.button_switch = Button(self, text='Move', bg='gray')
+        self.button_switch.grid(row=1, column=1, padx=10, pady=15)
+
 
         self.leftpanel.grid(row=0, column=0)
         self.rightpanel.grid(row=0, column=2)
