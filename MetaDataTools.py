@@ -1,3 +1,4 @@
+import json
 import pandas as pd
 from PIL import Image
 from PIL.ExifTags import TAGS
@@ -41,31 +42,36 @@ def get_metdat(photopath):
             data = data.decode(encoding='latin-1')
         data_dict[tag] = data
 
-    return info_dict, data_dict
+    metadata = info_dict | data_dict
 
-def generate_dataframes(info, data):
-    # make info dataframe
-    df_info = pd.DataFrame(columns=info.keys())
-    # make dataframe for EXIF metadata
-    df_exif = pd.DataFrame(columns=data.keys())
-    return df_info, df_exif
+    return metadata
+
+def generate_dataframe(data):
+    # make dataframe for metadata
+    df_meta = pd.DataFrame(columns=data.keys())
+    return df_meta
 
 
-def store_metadata(dfi: pd.DataFrame, dfe: pd.DataFrame, info: dict, data: dict):
-    dfi = pd.concat([dfi, pd.DataFrame([info])], ignore_index=True)
-    dfe = pd.concat([dfe, pd.DataFrame([data])], ignore_index=True)
-    return dfi, dfe
+def add_to_dataframe(df_meta: pd.DataFrame, data: dict):
+    df_meta = pd.concat([df_meta, pd.DataFrame([data])], ignore_index=True)
+    return df_meta
 
+def store_dataframes(df_meta: pd.DataFrame):
+    with open('settings.json', 'r') as outfile:
+        settings = json.load(outfile)
+        # TODO add the file somehwere more sensible
+    df_meta.to_csv(path_or_buf='metadata.csv')
 
 
 if __name__ == '__main__':
-    x, y = get_metdat("C:/Users/ike004/OneDrive - Wageningen University & Research/Desktop/foto\'s/004 - kopie.JPG")
+
+    x = get_metdat("C:/Users/ike004/OneDrive - Wageningen University & Research/Desktop/foto\'s/004 - kopie.JPG")
     # print(x)
     # print('\nnext\n')
     # print(y)
-    inf, exif = generate_dataframes(x, y)
-    print(inf, exif)
-    inf, exif = store_metadata(inf, exif, x, y)
-    print(inf.to_string(), '\n', exif.to_string())
+    inf = generate_dataframe(x)
+    print(inf)
+    inf = add_to_dataframe(inf, x)
+    store_dataframes(inf)
 
 
