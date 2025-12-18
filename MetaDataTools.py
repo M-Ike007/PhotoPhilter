@@ -1,3 +1,4 @@
+import pandas as pd
 from PIL import Image
 from PIL.ExifTags import TAGS
 
@@ -11,8 +12,8 @@ def print_info(info_dict, data_dict):
         print(f"{label:25}: {value}")
 
 
-def get_metdat(photo):
-    image = Image.open(photo)
+def get_metdat(photopath):
+    image = Image.open(photopath)
 
     # extract basic metadata
     info_dict = {
@@ -42,16 +43,29 @@ def get_metdat(photo):
 
     return info_dict, data_dict
 
+def generate_dataframes(info, data):
+    # make info dataframe
+    df_info = pd.DataFrame(columns=info.keys())
+    # make dataframe for EXIF metadata
+    df_exif = pd.DataFrame(columns=data.keys())
+    return df_info, df_exif
 
-def store_metdat(info, data):
-    ...
+
+def store_metadata(dfi: pd.DataFrame, dfe: pd.DataFrame, info: dict, data: dict):
+    dfi = pd.concat([dfi, pd.DataFrame([info])], ignore_index=True)
+    dfe = pd.concat([dfe, pd.DataFrame([data])], ignore_index=True)
+    return dfi, dfe
+
 
 
 if __name__ == '__main__':
-    print('hi')
-    x, y = get_metdat('004.jpg')
-    print(x)
-    print('\nnext\n')
-    print(y)
+    x, y = get_metdat("C:/Users/ike004/OneDrive - Wageningen University & Research/Desktop/foto\'s/004 - kopie.JPG")
+    # print(x)
+    # print('\nnext\n')
+    # print(y)
+    inf, exif = generate_dataframes(x, y)
+    print(inf, exif)
+    inf, exif = store_metadata(inf, exif, x, y)
+    print(inf.to_string(), '\n', exif.to_string())
 
 
