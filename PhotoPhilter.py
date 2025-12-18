@@ -154,7 +154,7 @@ class App(Tk):
             anchor='center',
             image=self.resized_image_tk)
 
-    def store_decisions(self):
+    def store_decisions(self): #TODO make sure decisions.json is stored in the right location
         storage = {'keep': self.keeplist, 'discard': self.discardlist, 'later': self.laterlist}
         with open("decisions.json", "w") as outfile:
             json.dump(storage, outfile, indent=6)
