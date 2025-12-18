@@ -170,5 +170,3 @@ if __name__ == '__main__':
     app = App()
     app.mainloop()
 
-    # md = MyMetadata(app)
-    # md.get_metdat('004.JPG')
