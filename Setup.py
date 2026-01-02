@@ -107,6 +107,7 @@ class Setup(Frame):
 
     # TODO add function for buttonmapping of the buttons where user input determines these.
 
+    # TODO add settings for what to do with none photo files
 
 if __name__ == '__main__':
     print('hi')
