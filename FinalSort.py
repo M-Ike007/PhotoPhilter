@@ -79,7 +79,8 @@ class App(Tk):
             self.quit()
             self.destroy()
             for i in range(len(discard)):
-                os.remove(directory + '/' + discard[i])
+                # keeping below line deactivated during development/testing
+                # os.remove(directory + '/' + discard[i])
                 print(discard[i], ' removed')
             print('done')
             os.remove(directory + '/decisions.json')
