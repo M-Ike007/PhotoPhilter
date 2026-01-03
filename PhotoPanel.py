@@ -60,18 +60,26 @@ class Panel(Frame):
 
         checkboxes = []
         for i in range(len(imagenames)):
+            # checkboxVar = IntVar()
             image_path = str(directory) + '/' + str(imagenames[i])
             checkboxes.append(CBI(self, image_path=image_path))
+            # self.states.append(checkboxVar)
         return checkboxes
 
     def place_checkboxes(self):
         for i in range(len(self.checkboxes)):
             self.checkbox = self.checkboxes[i]
-            self.checkbox.grid(row=(1 + (i%7)), column=(i//7 +1))
-            # the number 7 is based on my personal laptop screen size and might be different elsewhere
             self.checkbox.grid(row=(1 + (i%6)), column=(i//6 +1))
             #TODO the number 6 is based on my personal laptop screen size and might be different elsewhere
 
+    def refresh(self):
+        # remove current checkboxes?
+        ...
+        # place new situation
+        self.place_checkboxes()
+
+    def get_checkbox_states(self):
+        print(self.states)
 
 if __name__ == '__main__':
     panel = Panel('keep')
