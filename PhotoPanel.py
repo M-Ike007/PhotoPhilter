@@ -6,12 +6,12 @@ import json
 class Panel(Frame):
     def __init__(self, image_list: str):
         super().__init__()
-
+        self.image_list = image_list
         self.decisions = self.get_decisions()
 
         self.grid()
 
-        self.checkboxes = self.create_checkbox_list(image_list)
+        self.checkboxes = self.create_checkbox_list(self.image_list)
         self.checkbox = CBI
         self.place_checkboxes()
 
