@@ -25,7 +25,12 @@ class Pictures:
     def get_images(self):
         # returns a list with names of all images of appropriate datatypes
         for file in listdir(self.directory):
-            if file.endswith(".jpg") or file.endswith('.png') or file.endswith('.PNG') or file.endswith('.JPG'):
+            if (file.endswith(".jpg")
+                    or file.endswith('.png')
+                    or file.endswith('.PNG')
+                    or file.endswith('.JPG')
+                    or file.endswith('.jpeg')
+                    or file.endswith('.JPEG')):
                 self.images.append(file)
             else:
                 self.other_files.append(file)
