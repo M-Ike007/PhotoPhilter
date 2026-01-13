@@ -1,5 +1,6 @@
 from tkinter import *
 from CheckBoxImage import CheckBoxImage as CBI
+from ButtonImage import ButtonImage as BI
 import json
 
 
@@ -11,11 +12,12 @@ class Panel(Frame):
 
         self.grid()
 
-        self.checkboxes = self.create_checkbox_list(self.image_list)
-        self.checkbox = CBI
-        self.place_checkboxes()
 
-        self.states = []
+
+        # self.checkboxes = self.create_checkbox_list(self.image_list)
+        # self.checkbox = CBI
+        # self.place_checkboxes()
+        # self.states = []
 
     def get_decisions(self):
         with open('settings.json', 'r') as outfile:
@@ -78,11 +80,63 @@ class Panel(Frame):
         # place new situation
         self.place_checkboxes()
 
-    def get_checkbox_states(self):
-        print(self.states)
+    # BI's
+
+class Panel2(Frame):
+    def __init__(self, image_list: str):
+        super().__init__()
+        self.image_list = image_list
+        self.directory = self.get_dir()
+        self.decisions = self.get_decisions(self.directory)
+
+        self.BIs = []
+        self.grid()
+
+        self.place_BIs()
+
+        # self.checkboxes = self.create_checkbox_list(self.image_list)
+        # self.checkbox = CBI
+        # self.place_checkboxes()
+        # self.states = []
+
+    def get_dir(self):
+        with open('settings.json', 'r') as outfile:
+            settings = json.load(outfile)
+        outfile.close()
+        decisions_dir = settings['directory'] + '/decisions.json'
+        return decisions_dir
+
+    def get_decisions(self, decisions_dir):
+        with open(decisions_dir, 'r') as outfile:
+            decisions = json.load(outfile)
+        outfile.close()
+        return decisions
+
+    def get_decision_list(self, list_name):
+        return self.decisions[list_name]
+
+    def create_BIs(self):
+        mylist = self.get_decision_list(self.image_list)
+        for i in range(len(mylist)):
+            image_path = str(self.directory) + '/' + str(mylist[i])
+            self.BIs.append(BI(self, image_path=image_path, ))
+
+    def send_clicked_buttons(self):
+        for i in range(len(self.BIs)):
+            if self.BIs[i].state == True:
+                print('i am clicked')
+            else:
+                print('i am NOT clicked')
+
+    def place_BIs(self):
+        for i in range(len(self.BIs)):
+            BI = self.BIs[i]
+            BI.grid(row=(1 + (i%6)), column=(i//6 +1))
+
+
 
 if __name__ == '__main__':
-    panel = Panel('keep')
-    panel.place_checkboxes()
+    panel = Panel2('keep')
+    panel.create_BIs()
 
 
