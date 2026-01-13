@@ -28,8 +28,8 @@ class App(Tk):
         self.geometry(f"{window_width}x{window_height}+{int(margin_x / 2)}+{int(margin_y / 4)}")
         self.grid()
 
-        self.left_panel = PPan.Panel('keep')
-        self.right_panel = PPan.Panel('discard')
+        self.left_panel = PPan.Panel2('keep')
+        self.right_panel = PPan.Panel2('discard')
 
         self.left_panel.grid(row=1, column=0)
         self.right_panel.grid(row=1, column=2)
@@ -59,6 +59,8 @@ class App(Tk):
         self.right_panel.refresh()
 
     def done(self):
+        # TODO: currently, if done button is pressed twice, two popups are created.
+        #  There should always be only one popup present when pressing done button
         popup = Popup.Popup()
         popup.mainloop()
         delete = popup.get_delete()
